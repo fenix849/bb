@@ -53,13 +53,12 @@
     
     /** @param {NS} ns **/
     export async function main(ns) {
-        let trades = new Set()
+        let trades = []
         while(true)
         {
     
             for(let sxsym of ns.stock.getSymbols())
-            {
-                
+            {                
                 let nformatmethod = false
                 let pos = ns.stock.getPosition(sxsym)
                 let price = ns.stock.getBidPrice(sxsym)
@@ -79,12 +78,20 @@
                         if(sres > 0)
                         {
                             await logtermprint(ns, "Sold " + abbrNum(holding,2) + " shares in " + sxsym + " at " + (nformatmethod ? ns.nFormat(price,"0.00") : abbrNum(price,2)) + " for $" + abbrNum(sale,2) + " because forecast is " + ns.nFormat(fc,"0.000") + ".\n")
-                            if(trades.has(sxsym)){
+                            console.log("Trades Set")
+                            console.log(trades)
+                            console.log(sxsym in trades)
+                            if(sxsym in trades){
                                 let buytotal = trades[sxsym]*holding
                                 console.log("Buy Total " + buytotal)
                                 console.log("Sell Total " + sale)
                                 let profit = sale - buytotal
                                 console.log("Profit " + profit)
+                                const i = trades.indexOf(sxsym)
+                                trades.splice(i,1)
+                            }
+                            else{
+                                console.log("No data on buy.")
                             }
                         }
                         else
