@@ -12,6 +12,6 @@ These are some BitBurner scripts most of which i've written, none of them super 
 - purchase.js - purchase 25 servers with the most memory possible with the players current money (or amount specified in millions).
 - delete.js - remove all purchased servers.
 - deployhack.js - recursive deployment script that will deploy and execute hack.js to and on all servers where scripts can be run by the user.
-- deploybreak.js - a script desperately in need of the same tlc applied to deployhack.js
+- deploybreak.js - a script desperately in need of the same tlc applied to deployhack.jsm, a work in progress.
 
 
