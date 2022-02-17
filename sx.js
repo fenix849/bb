@@ -1,4 +1,4 @@
-//Not compatible with shorting
+//Stock Script for long market positions.
 /** @param {NS} ns 
 	@param {String} line */
 async function logtermprint(ns, line){
